@@ -1,0 +1,345 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:url("background.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+color:white;
+overflow-x:hidden;
+}
+
+#tsparticles{
+
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+pointer-events:none;
+}
+
+nav{
+
+position:fixed;
+top:0;
+width:100%;
+
+padding:25px 80px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(15px);
+
+z-index:1000;
+}
+
+.logo{
+
+font-size:40px;
+font-weight:800;
+color:#ff6600;
+}
+
+nav ul{
+
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+}
+
+nav a:hover{
+
+color:#ff6600;
+}
+
+.btn-nav{
+
+padding:12px 25px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff6600;
+
+color:white;
+
+cursor:pointer;
+}
+
+.gallery{
+
+padding:150px 8%;
+text-align:center;
+}
+
+.gallery h1{
+
+font-size:90px;
+
+background:linear-gradient(
+90deg,
+#ff6600,
+#ffffff
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.gallery p{
+
+margin-top:15px;
+color:#ccc;
+}
+
+.gallery-grid{
+
+margin-top:60px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:30px;
+}
+
+.gallery-grid img{
+
+width:100%;
+height:280px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+cursor:pointer;
+
+transition:.4s;
+
+border:1px solid rgba(255,255,255,.08);
+
+background:rgba(20,20,20,.55);
+
+backdrop-filter:blur(15px);
+}
+
+.gallery-grid img:hover{
+
+transform:
+scale(1.05);
+
+box-shadow:
+0 0 30px rgba(255,102,0,.5);
+}
+
+.lightbox{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.95);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+}
+
+.lightbox img{
+
+max-width:90%;
+max-height:85%;
+border-radius:20px;
+}
+
+.lightbox span{
+
+position:absolute;
+
+top:20px;
+right:40px;
+
+font-size:50px;
+
+cursor:pointer;
+
+color:white;
+}
+
+@media(max-width:768px){
+
+.gallery h1{
+
+font-size:50px;
+}
+
+nav ul{
+
+display:none;
+}
+}
+.video-section{
+    padding:120px 8%;
+    text-align:center;
+}
+
+.video-title{
+    font-size:80px;
+    margin-bottom:15px;
+
+    background:linear-gradient(
+        90deg,
+        #ff6600,
+        #ffffff
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.video-subtitle{
+    color:#ccc;
+    margin-bottom:50px;
+    font-size:18px;
+}
+
+.video-frame{
+
+    width:100%;
+    max-width:1200px;
+
+    aspect-ratio:16/9;
+
+    margin:auto;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:rgba(20,20,20,.55);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 0 25px rgba(255,102,0,.3);
+
+    transition:.4s;
+}
+
+.video-frame:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 0 30px rgba(255,102,0,.5),
+    0 0 80px rgba(255,102,0,.2);
+}
+
+.video-frame video{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    display:block;
+}
+#loader{
+    position:fixed;
+    inset:0;
+    background:#111;
+    z-index:99999;
+    overflow:hidden;
+}
+
+.loading-track{
+    position:absolute;
+    top:60%;
+    left:0;
+    width:100%;
+    height:4px;
+    background:#333;
+}
+
+.loading-line{
+    width:0%;
+    height:100%;
+    background:#ff6600;
+    animation:loadBar 5s linear forwards;
+}
+
+.bike-loader{
+    position:absolute;
+    width:120px;
+
+    top:calc(60% - 65px);
+    left:-150px;
+
+    animation:bikeMove 5s linear forwards;
+}
+
+@keyframes bikeMove{
+
+    0%{
+        left:-150px;
+    }
+
+    100%{
+        left:calc(100% - 120px);
+    }
+}
+
+@keyframes loadBar{
+
+    0%{
+        width:0%;
+    }
+
+    100%{
+        width:100%;
+    }
+}.bike-loader{
+    position:absolute;
+    width:120px;
+    top:calc(60% - 65px);
+
+    animation:
+    bikeMove 5s linear forwards,
+    bikeBounce .2s infinite alternate;
+}
+
+@keyframes bikeBounce{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-4px);
+    }
+}
